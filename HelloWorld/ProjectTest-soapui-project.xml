@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="05eb71f4-061e-4f0f-abad-db9676fd6743" activeEnvironment="Default" name="ProjectTest" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0be48b6f-8a25-4557-8916-977a8a0dc5ab" wsaVersion="NONE" name="HelloWorldBinding" type="wsdl" bindingName="{http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld}HelloWorldBinding" soapVersion="1_1" anonymous="optional" definition="https://devsoa.imperial.ac.uk/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://devsoa.imperial.ac.uk/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep?WSDL"><con:part><con:url>https://devsoa.imperial.ac.uk/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="HelloWorld" targetNamespace="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest!1.0/HelloWorld.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="HelloWorld">
+    <plnk:role name="HelloWorldProvider" portType="client:HelloWorld"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld" schemaLocation="https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep?XSD=xsd/HelloWorld.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldRequestMessage">
+    <wsdl:part name="payload" element="client:process"/>
+  </wsdl:message>
+  <wsdl:message name="HelloWorldResponseMessage">
+    <wsdl:part name="payload" element="client:processResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="HelloWorld">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:HelloWorldRequestMessage"/>
+      <wsdl:output message="client:HelloWorldResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloWorldBinding" type="client:HelloWorld">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="helloworld_client_ep">
+    <wsdl:port name="HelloWorld_pt" binding="client:HelloWorldBinding">
+      <soap:address location="https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep?XSD=xsd/HelloWorld.xsd</con:url><con:content><![CDATA[<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="process">
+    <complexType>
+      <sequence>
+        <element name="input" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep</con:endpoint></con:endpoints><con:operation id="97e66c86-b369-43ed-bedf-46bd414a666c" isOneWay="false" action="process" name="process" bindingOperationName="process" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="222ffe22-4e6f-459f-bf0c-33e8287550d5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hel="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <hel:process>\r
+         <hel:input>SOA</hel:input>\r
+      </hel:process>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="process"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="3fecae1c-f46f-452d-8c3e-73e3ac53dd41" name="HelloWorldTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7940c5e5-322b-413a-8deb-40ac9e553428" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SOATestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1aaa0772-1f43-497b-a9f7-d829a28ab584" name="HelloSOA"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>HelloWorldBinding</con:interface><con:operation>process</con:operation><con:request name="HelloSOA" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="8fc6ce8a-6683-4a24-949e-95588aaec5d3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://devsoa.imperial.ac.uk:443/soa-infra/services/LKTest/ProjectTest/helloworld_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hel="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <hel:process>\r
+         <hel:input>SOA</hel:input>\r
+      </hel:process>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cc9bbd16-d7f3-49df-ab5d-f152f3d8f07b" name="SOAP Response"/><con:assertion type="Schema Compliance" id="62634bc2-4df3-484d-a7f7-1f5adb1c9d8f" name="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="050f9b00-9aba-4e66-a942-b3fec2a61d58" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="2744683b-6365-4ca6-940b-b220c8ae83bb" name="Contains"><con:configuration><token>      &lt;processResponse xmlns="http://xmlns.oracle.com/SOA_Current/ProjectTest/HelloWorld">
+         &lt;result>Hello SOA&lt;/result>
+      &lt;/processResponse>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="process"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

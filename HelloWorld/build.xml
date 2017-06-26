@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="HelloWorldTest" default="testreport" basedir=".">
+	<target name="SoapUI">
+		<exec dir="." executable="C:\Program Files\SmartBear\SoapUI-5.3.0\bin\testrunner.bat">
+			<arg line="-sHelloWorldTestSuite 'C:\Program Files (x86)\Jenkins\workspace\HelloWorld\ProjectTest-soapui-project.xml'"/>
+		</exec>
+	</target>
+	<target name="testreport" depends="SoapUI">
+		<junitreport todir="C:\oracle\report">
+			<fileset dir="C:\oracle\report">
+				<include name="*.xml"/>
+			</fileset>
+			<report todir="C:\oracle\report\HTML"/>
+		</junitreport>
+	</target>
+</project>
